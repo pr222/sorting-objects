@@ -33,5 +33,15 @@
  * @returns {Team[]} An ordered array of references to team objects.
  */
 export function sortByPoints (teams) {
-  // TODO: Write your code here!
+  // Validate that intput is an array.
+  if (!Array.isArray(teams)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+
+  // Makes a copy of incoming array.
+  const orderedTeams = Array.from(teams)
+  // Sorts array descending, comparing the values of the points properties.
+  orderedTeams.sort((a, b) => b.points - a.points)
+
+  return orderedTeams
 }
